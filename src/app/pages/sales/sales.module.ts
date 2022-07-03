@@ -1,9 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { SalesRoutingModule } from './sales-routing.module';
+// Components
 import { SalesComponent } from './sales.component';
 import { NewSaleComponent } from './new-sale/new-sale.component';
+
+// Modules
+import { SalesRoutingModule } from './sales-routing.module';
+import { ComponentsModule } from 'app/components/components.module';
 
 @NgModule({
   declarations: [
@@ -12,7 +16,8 @@ import { NewSaleComponent } from './new-sale/new-sale.component';
   ],
   imports: [
     CommonModule,
-    SalesRoutingModule
+    SalesRoutingModule,
+    ComponentsModule
   ]
 })
 export class SalesModule { }

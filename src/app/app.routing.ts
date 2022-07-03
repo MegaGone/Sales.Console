@@ -7,21 +7,6 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 
 const routes: Routes = [
   {
-    path: '',
-    redirectTo: 'dashboard',
-    pathMatch: 'full',
-  },
-  {
-    path: '',
-    component: AdminLayoutComponent,
-    children: [
-      {
-        path: '',
-        loadChildren: () => import('./layouts/admin-layout/admin-layout.module').then(m => m.AdminLayoutModule)
-      }
-    ]
-  },
-  {
     path        : 'ventas',
     loadChildren: () => import('./pages/sales/sales.module').then(m => m.SalesModule)
   },
@@ -31,7 +16,7 @@ const routes: Routes = [
   },
   {
     path        : '**',
-    redirectTo  : ''
+    redirectTo  : 'reportes'
   }
 ];
 
