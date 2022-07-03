@@ -1,3 +1,20 @@
 .form-check .form-check-input:checked + .form-check-sign .check {
     background-color: #00bcd4;
 }
+
+.recipe-row {
+    border: 1px solid #ccc;
+    padding: 3px;
+}
+
+.title {
+    display: flex; 
+    justify-content: flex-start; 
+    align-items: flex-start;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 15px;
+
+    #back {
+        margin-top: 15px;
+    }
+}

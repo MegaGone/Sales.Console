@@ -4,16 +4,15 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card-body">
-                        <div [routerLink]="['/ventas']">
-                            <i class="material-icons">arrow_back_ios</i>
+                        <div class="title">
+                            <i [routerLink]="['/ventas']" id="back" class="material-icons">arrow_back_ios</i>
+                            <h2>Nueva venta</h2>
                         </div>
 
-                        <h2>Nueva venta</h2>
-                        <hr>
 
                         <div [formGroup]="salesForm">
                             <!-- RECIPE DATA -->
-                            <div class="row">
+                            <div class="row recipe-row pt-4">
                                 <div class="col-2">
                                     <mat-form-field class="example-full-width">
                                         <input 
@@ -64,7 +63,7 @@
                             <!-- /RECIPE DATA -->
 
                             <!-- CLIENT DATA -->
-                            <div class="row">
+                            <div class="row recipe-row mt-2">
                                 <div class="col-10">
 
                                     <div class="row">
@@ -136,7 +135,7 @@
                             <!-- /CLIENT DATA -->
 
                             <!-- PRODUCT DATA -->
-                            <div class="row">
+                            <div class="row recipe-row mt-2">
 
                                 <div class="row p-3">
                                     <div class="col-2">
@@ -199,7 +198,7 @@
                         <!-- PRODUCTS TABLE -->
                         <div class="table-responsive mt-3">
                             <table class="table text-center">
-                                <thead class="text-primary">
+                                <thead class="text-info">
                                     <th>Código</th>
                                     <th>Artículo</th>
                                     <th>Cant</th>
