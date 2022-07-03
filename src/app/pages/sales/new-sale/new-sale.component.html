@@ -34,11 +34,12 @@
                                 </div>
                                 <div class="col-3">
                                     <mat-form-field class="example-full-width">
-                                        <input 
-                                        type="number" 
-                                        matInput 
-                                        placeholder="Forma de pago"
-                                        formControlName="payMethod">
+                                        <mat-label>Forma de pago</mat-label>
+                                            <mat-select formControlName="payMethod">
+                                              <mat-option *ngFor="let methodPay of PayMethods" [value]="methodPay.id">
+                                                {{ methodPay.value }}
+                                              </mat-option>
+                                        </mat-select>
                                     </mat-form-field>
                                 </div>
                                 <div class="col-2">

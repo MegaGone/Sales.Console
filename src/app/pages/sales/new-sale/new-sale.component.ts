@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { IProduct, IClient } from 'app/Interfaces';
-import { Products, Clients } from '../data';
+import { IProduct, IClient, IPayMethod } from 'app/Interfaces';
+import { Products, Clients, PayMethods } from '../data';
 
 @Component({
   selector: 'new-sale',
@@ -11,14 +11,16 @@ import { Products, Clients } from '../data';
 export class NewSaleComponent implements OnInit {
 
   // Dummy Data
-  public Products: IProduct[];
-  public Clients: IClient[]
+  public Products  : IProduct[];
+  public Clients   : IClient[]
+  public PayMethods: IPayMethod[];
 
   public salesForm: FormGroup;
 
   constructor(private fb: FormBuilder) { 
     this.Products = Products;
     this.Clients = Clients;
+    this.PayMethods = PayMethods;
   }
 
   ngOnInit(): void {
@@ -32,7 +34,7 @@ export class NewSaleComponent implements OnInit {
     this.salesForm = this.fb.group({
       saleNo    : ['', Validators.required],
       date      : ['', Validators.required],
-      payMethod : ['', Validators.required],
+      payMethod : [1, Validators.required],
       days      : ['', Validators.required],
       print     : [false],
       clientNo  : ['', Validators.required],

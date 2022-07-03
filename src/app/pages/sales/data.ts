@@ -1,4 +1,4 @@
-import { IClient, IProduct } from "app/Interfaces";
+import { IClient, IPayMethod, IProduct } from "app/Interfaces";
 
 export const Products: IProduct[] = [
     {
@@ -54,5 +54,20 @@ export const Clients: IClient[] = [
         address: 'Ecuador',
         quota: 1,
         priceSale: 50
+    }
+]
+
+export const PayMethods: IPayMethod[] = [
+    {
+        id: 1,
+        value: 'Efectivo'
+    },
+    {
+        id: 2,
+        value: 'Débito'
+    },
+    {
+        id: 3,
+        value: 'Crédito'
     }
 ]
