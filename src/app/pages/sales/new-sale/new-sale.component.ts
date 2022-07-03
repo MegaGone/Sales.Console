@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IProduct } from 'app/Interfaces';
+import { Products } from '../data';
 
 @Component({
   selector: 'new-sale',
@@ -7,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewSaleComponent implements OnInit {
 
-  constructor() { }
+  public Products: IProduct[];
+
+  constructor() { 
+    this.Products = Products;
+  }
 
   ngOnInit(): void {
   }
