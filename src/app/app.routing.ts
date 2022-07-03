@@ -3,8 +3,6 @@ import { CommonModule, } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-
 const routes: Routes = [
   {
     path        : 'ventas',
@@ -16,7 +14,7 @@ const routes: Routes = [
   },
   {
     path        : '**',
-    redirectTo  : 'reportes'
+    redirectTo  : 'ventas'
   }
 ];
 
