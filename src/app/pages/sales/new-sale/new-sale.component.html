@@ -4,142 +4,189 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card-body">
+                        <small [routerLink]="['/ventas']">Regresar</small>
+
                         <h2>Nueva venta</h2>
                         <hr>
 
-                        <!-- RECIPE DATA -->
-                        <div class="row">
-                            <div class="col-2">
-                                <mat-form-field class="example-full-width">
-                                    <input type="number" matInput placeholder="Venta N°">
-                                </mat-form-field>
+                        <div [formGroup]="salesForm">
+                            <!-- RECIPE DATA -->
+                            <div class="row">
+                                <div class="col-2">
+                                    <mat-form-field class="example-full-width">
+                                        <input 
+                                        type="number" 
+                                        matInput placeholder="Venta N°" 
+                                        formControlName="saleNo">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-2">
+                                    <mat-form-field class="example-full-width">
+                                        <input 
+                                        type="date" 
+                                        matInput 
+                                        placeholder="Fecha"
+                                        formControlName="date">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-3">
+                                    <mat-form-field class="example-full-width">
+                                        <input 
+                                        type="number" 
+                                        matInput 
+                                        placeholder="Forma de pago"
+                                        formControlName="payMethod">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-2">
+                                    <mat-form-field class="example-full-width">
+                                        <input 
+                                        matInput 
+                                        placeholder="Días"
+                                        formControlName="days"
+                                        disabled>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-3">
+                                    <small class="mr-2">Imprimir factura</small>
+                                    <input 
+                                    type="checkbox" 
+                                    formControlName="print">
+                                </div>
                             </div>
-                            <div class="col-2">
-                                <mat-form-field class="example-full-width">
-                                    <input type="date" matInput placeholder="Fecha">
-                                </mat-form-field>
-                            </div>
-                            <div class="col-3">
-                                <mat-form-field class="example-full-width">
-                                    <input type="number" matInput placeholder="Forma de pago">
-                                </mat-form-field>
-                            </div>
-                            <div class="col-2">
-                                <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Días" disabled>
-                                </mat-form-field>
-                            </div>
-                            <div class="col-3">
-                                <input type="checkbox">
-                            </div>
-                        </div>
-                        <!-- /RECIPE DATA -->
+                            <!-- /RECIPE DATA -->
 
-                        <!-- CLIENT DATA -->
-                        <div class="row" style="background-color: #ccc;">
-                            <div class="col-10">
+                            <!-- CLIENT DATA -->
+                            <div class="row" style="background-color: #ccc;">
+                                <div class="col-10">
 
-                                <div class="row">
-                                    <div class="col-4">
-                                        <mat-form-field class="example-full-width">
-                                            <input type="number" matInput placeholder="Cliente N°">
-                                        </mat-form-field>
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <mat-form-field class="example-full-width">
+                                                <input 
+                                                type="number" 
+                                                matInput 
+                                                placeholder="Cliente N°"
+                                                formControlName="clientNo"
+                                                >
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-4">
+                                            <mat-form-field class="example-full-width">
+                                                <input 
+                                                type="text" 
+                                                matInput 
+                                                placeholder="Cliente"
+                                                formControlName="clientName">
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-4">
+                                            <mat-form-field class="example-full-width">
+                                                <input 
+                                                type="tel" 
+                                                matInput 
+                                                placeholder="Teléfono"
+                                                formControlName="phone">
+                                            </mat-form-field>
+                                        </div>
                                     </div>
-                                    <div class="col-4">
-                                        <mat-form-field class="example-full-width">
-                                            <input type="number" matInput placeholder="Cliente">
-                                        </mat-form-field>
-                                    </div>
-                                    <div class="col-4">
-                                        <mat-form-field class="example-full-width">
-                                            <input type="tel" matInput placeholder="Teléfono°">
-                                        </mat-form-field>
+
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <mat-form-field class="example-full-width">
+                                                <input 
+                                                type="text" 
+                                                matInput 
+                                                placeholder="Dirección"
+                                                formControlName="address">
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-3">
+                                            <mat-form-field class="example-full-width">
+                                                <input 
+                                                type="number" 
+                                                matInput 
+                                                placeholder="Cupo"
+                                                formControlName="cupo">
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-3">
+                                            <mat-form-field class="example-full-width">
+                                                <input 
+                                                type="number" 
+                                                matInput 
+                                                placeholder="Precio venta"
+                                                formControlName="price">
+                                            </mat-form-field>
+                                        </div>
                                     </div>
                                 </div>
+                                <div class="col-2">
+                                    <button class="btn btn-danger">Buscar</button>
+                                </div>
+                            </div>
+                            <!-- /CLIENT DATA -->
 
-                                <div class="row">
-                                    <div class="col-6">
+                            <!-- PRODUCT DATA -->
+                            <div class="row">
+
+                                <div class="row p-3">
+                                    <div class="col-2">
                                         <mat-form-field class="example-full-width">
-                                            <input type="text" matInput placeholder="Dirección">
+                                            <input type="number" matInput placeholder="Código">
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-4">
+                                        <mat-form-field class="example-full-width">
+                                            <input type="text" matInput placeholder="Nombre articulo">
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-1">
+                                        <mat-form-field class="example-full-width">
+                                            <input type="number" matInput placeholder="Cant">
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-2">
+                                        <mat-form-field class="example-full-width">
+                                            <input type="number" matInput placeholder="Precio">
                                         </mat-form-field>
                                     </div>
                                     <div class="col-3">
                                         <mat-form-field class="example-full-width">
-                                            <input type="number" matInput placeholder="Cupo">
+                                            <input type="number" matInput placeholder="Valor total">
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+
+                                <div class="row p-3">
+                                    <div class="col-2">
+                                        <mat-form-field class="example-full-width">
+                                            <input type="number" matInput placeholder="% Desc">
                                         </mat-form-field>
                                     </div>
                                     <div class="col-3">
                                         <mat-form-field class="example-full-width">
-                                            <input type="number" matInput placeholder="Precio venta">
+                                            <input type="number" matInput placeholder="Valor Desc">
                                         </mat-form-field>
                                     </div>
+                                    <div class="col-3">
+                                        <mat-form-field class="example-full-width">
+                                            <input type="number" matInput placeholder="Precio Min">
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-1">
+                                        <mat-form-field class="example-full-width">
+                                            <input type="number" matInput placeholder="Existe">
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-3">
+                                        <button class="btn btn-danger">Agregar Producto</button>
+                                    </div>
                                 </div>
+
                             </div>
-                            <div class="col-2">
-                                <button class="btn btn-danger">Buscar</button>
-                            </div>
+                            <!-- /PRODUCT DATA -->
                         </div>
-                        <!-- /CLIENT DATA -->
-
-                        <!-- PRODUCT DATA -->
-                        <div class="row">
-
-                            <div class="row p-3">
-                                <div class="col-2">
-                                    <mat-form-field class="example-full-width">
-                                        <input type="number" matInput placeholder="Código">
-                                    </mat-form-field>
-                                </div>
-                                <div class="col-4">
-                                    <mat-form-field class="example-full-width">
-                                        <input type="text" matInput placeholder="Nombre articulo">
-                                    </mat-form-field>
-                                </div>
-                                <div class="col-1">
-                                    <mat-form-field class="example-full-width">
-                                        <input type="number" matInput placeholder="Cant">
-                                    </mat-form-field>
-                                </div>
-                                <div class="col-2">
-                                    <mat-form-field class="example-full-width">
-                                        <input type="number" matInput placeholder="Precio">
-                                    </mat-form-field>
-                                </div>
-                                <div class="col-3">
-                                    <mat-form-field class="example-full-width">
-                                        <input type="number" matInput placeholder="Valor total">
-                                    </mat-form-field>
-                                </div>
-                            </div>
-
-                            <div class="row p-3">
-                                <div class="col-2">
-                                    <mat-form-field class="example-full-width">
-                                        <input type="number" matInput placeholder="% Desc">
-                                    </mat-form-field>
-                                </div>
-                                <div class="col-3">
-                                    <mat-form-field class="example-full-width">
-                                        <input type="number" matInput placeholder="Valor Desc">
-                                    </mat-form-field>
-                                </div>
-                                <div class="col-3">
-                                    <mat-form-field class="example-full-width">
-                                        <input type="number" matInput placeholder="Precio Min">
-                                    </mat-form-field>
-                                </div>
-                                <div class="col-1">
-                                    <mat-form-field class="example-full-width">
-                                        <input type="number" matInput placeholder="Existe">
-                                    </mat-form-field>
-                                </div>
-                                <div class="col-3">
-                                    <button class="btn btn-danger">Agregar Producto</button>
-                                </div>
-                            </div>
-
-                        </div>
-                        <!-- /PRODUCT DATA -->
 
                         <!-- PRODUCTS TABLE -->
                         <div class="table-responsive mt-3">
@@ -170,6 +217,12 @@
                             </table>
                         </div>
                         <!-- /PRODUCTS TABLE -->
+
+                        <div class="row">
+                            <div class="col-12" style="display: flex; justify-content: start; align-items:flex-start;">
+                                <button class="btn btn-danger" (click)="saveRecipe()">Guardar factura</button>
+                            </div>
+                        </div>
 
                     </div>
                 </div>

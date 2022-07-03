@@ -8,6 +8,7 @@ import { NewSaleComponent } from './new-sale/new-sale.component';
 // Modules
 import { SalesRoutingModule } from './sales-routing.module';
 import { ComponentsModule } from 'app/components/components.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Material
 import { MatButtonModule } from '@angular/material/button';
@@ -32,6 +33,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatInputModule,
     MatSelectModule,
     MatTooltipModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class SalesModule { }
