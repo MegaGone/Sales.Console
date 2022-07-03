@@ -1,4 +1,4 @@
-import { IProduct } from "app/Interfaces";
+import { IClient, IProduct } from "app/Interfaces";
 
 export const Products: IProduct[] = [
     {
@@ -27,5 +27,32 @@ export const Products: IProduct[] = [
         price: 33,
         subTotal: 165,
         discount: 0
+    }
+]
+
+export const Clients: IClient[] = [
+    {
+        clientNo: 1,
+        clientName: 'Javier',
+        phone:  123456789,
+        address: 'Guatemala',
+        quota: 1,
+        priceSale: 50
+    },
+    {
+        clientNo: 2,
+        clientName: 'Fernando',
+        phone:  123456789,
+        address: 'Perú',
+        quota: 1,
+        priceSale: 78
+    },
+    {
+        clientNo: 3,
+        clientName: 'Erick',
+        phone:  123456789,
+        address: 'Ecuador',
+        quota: 1,
+        priceSale: 50
     }
 ]
