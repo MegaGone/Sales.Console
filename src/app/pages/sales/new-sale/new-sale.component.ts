@@ -35,7 +35,7 @@ export class NewSaleComponent implements OnInit {
       saleNo    : ['', Validators.required],
       date      : ['', Validators.required],
       payMethod : [1, Validators.required],
-      days      : ['', Validators.required],
+      days      : [{ value: '', disabled: true }],
       print     : [false],
       clientNo  : ['', Validators.required],
       clientName: ['', Validators.required],
@@ -45,6 +45,8 @@ export class NewSaleComponent implements OnInit {
       price     : ['', Validators.required],
       products  : this.fb.array([])
     })
+
+    this.listenFormChanges();
   }
 
   /**
@@ -95,6 +97,24 @@ export class NewSaleComponent implements OnInit {
     this.Form.price.setValue(client.priceSale);
 
     this.salesForm.updateValueAndValidity();
+  }
+
+  listenFormChanges() {
+    this.Form.payMethod.valueChanges.subscribe(res => {
+
+      if (res == 3) {
+        this.Form.days.enable();
+        this.Form.days.addValidators(Validators.required);
+        this.Form.days.updateValueAndValidity();
+        return;
+      } else {
+        this.Form.days.disable();
+        this.Form.days.clearValidators();
+        this.Form.days.updateValueAndValidity();
+        return;
+      }
+
+    })
   }
 
   /********* FORM REFERENCES **********/
