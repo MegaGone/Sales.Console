@@ -140,27 +140,47 @@
                                 <div class="row p-3">
                                     <div class="col-2">
                                         <mat-form-field class="example-full-width">
-                                            <input type="number" matInput placeholder="Código">
+                                            <input 
+                                            type="number" 
+                                            matInput 
+                                            placeholder="Código"
+                                            formControlName="itemCode">
                                         </mat-form-field>
                                     </div>
                                     <div class="col-4">
                                         <mat-form-field class="example-full-width">
-                                            <input type="text" matInput placeholder="Nombre articulo">
+                                            <input 
+                                            type="text" 
+                                            matInput 
+                                            placeholder="Nombre articulo"
+                                            formControlName="itemDesc">
                                         </mat-form-field>
                                     </div>
                                     <div class="col-1">
                                         <mat-form-field class="example-full-width">
-                                            <input type="number" matInput placeholder="Cant">
+                                            <input 
+                                            type="number" 
+                                            matInput 
+                                            placeholder="Cant"
+                                            formControlName="itemquantity">
                                         </mat-form-field>
                                     </div>
                                     <div class="col-2">
                                         <mat-form-field class="example-full-width">
-                                            <input type="number" matInput placeholder="Precio">
+                                            <input 
+                                            type="number" 
+                                            matInput 
+                                            placeholder="Precio"
+                                            formControlName="itemPrice">
                                         </mat-form-field>
                                     </div>
                                     <div class="col-3">
                                         <mat-form-field class="example-full-width">
-                                            <input type="number" matInput placeholder="Valor total">
+                                            <input 
+                                            type="number" 
+                                            matInput 
+                                            placeholder="Valor total"
+                                            formControlName="totalValue">
                                         </mat-form-field>
                                     </div>
                                 </div>
@@ -168,26 +188,43 @@
                                 <div class="row p-3">
                                     <div class="col-2">
                                         <mat-form-field class="example-full-width">
-                                            <input type="number" matInput placeholder="% Desc">
+                                            <input 
+                                            type="number" 
+                                            matInput 
+                                            placeholder="% Desc"
+                                            formControlName="discItem">
                                         </mat-form-field>
                                     </div>
                                     <div class="col-3">
                                         <mat-form-field class="example-full-width">
-                                            <input type="number" matInput placeholder="Valor Desc">
+                                            <input 
+                                            type="number" 
+                                            matInput 
+                                            placeholder="Valor Desc"
+                                            formControlName="valueDiscItem">
                                         </mat-form-field>
                                     </div>
                                     <div class="col-3">
                                         <mat-form-field class="example-full-width">
-                                            <input type="number" matInput placeholder="Precio Min">
+                                            <input 
+                                            type="number" 
+                                            matInput 
+                                            placeholder="Precio Min"
+                                            formControlName="minPrice">
                                         </mat-form-field>
                                     </div>
                                     <div class="col-1">
                                         <mat-form-field class="example-full-width">
-                                            <input type="number" matInput placeholder="Existe">
+                                            <mat-label>Existe</mat-label>
+                                                <mat-select formControlName="exist">
+                                                <mat-option *ngFor="let exist of existArr" [value]="exist.id">
+                                                    {{ exist.value }}
+                                                </mat-option>
+                                            </mat-select>
                                         </mat-form-field>
                                     </div>
                                     <div class="col-3">
-                                        <button class="btn btn-info btn-sm">Agregar Producto</button>
+                                        <button class="btn btn-info btn-sm" (click)="addProduct()">Agregar Producto</button>
                                     </div>
                                 </div>
 
@@ -208,7 +245,7 @@
                                     <th>Opciones</th>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let product of Products">
+                                    <tr *ngFor="let product of Products; let i = index;">
                                         <td>{{ product?.code }}</td>
                                         <td>{{ product?.item }}</td>
                                         <td>{{ product?.quantity }}</td>
@@ -216,8 +253,8 @@
                                         <td>{{ product?.subTotal }}</td>
                                         <td>{{ product?.discount }}</td>
                                         <td>
-                                            <button class="btn btn-warning btn-sm">Editar</button>
-                                            <button class="btn btn-danger btn-sm">Eliminar</button>
+                                            <button class="btn btn-warning btn-sm" (click)="editProduct(product)">Editar</button>
+                                            <button class="btn btn-danger btn-sm" (click)="deleteProduct(i)">Eliminar</button>
                                         </td>
                                     </tr>
                                 </tbody>
