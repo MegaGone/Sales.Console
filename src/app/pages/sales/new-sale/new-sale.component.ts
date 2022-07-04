@@ -62,8 +62,7 @@ export class NewSaleComponent implements OnInit {
       discItem      : [''],
       valueDiscItem : [''],
       minPrice      : [''],
-      exist         : [true],
-      products      : this.fb.array([], Validators.required)
+      exist         : [true]
     })
 
     this.listenFormChanges();
@@ -113,7 +112,12 @@ export class NewSaleComponent implements OnInit {
       return Object.values(this.salesForm.controls).forEach(c => c.markAsTouched());
     }
 
-    console.log(this.salesForm.value);  
+    const recipe = {
+      ...this.salesForm.value,
+      products: this.Products
+    }
+
+    console.log(recipe);  
   }
 
   /**
